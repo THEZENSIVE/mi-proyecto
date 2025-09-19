@@ -1,0 +1,632 @@
+/* Estilos generales */
+body {
+    margin: 0; /* se quita el margin para evitar cortes con el header */
+    font-family: neue-haas-grotesk-display, sans-serif;
+    font-weight: 400;
+    background-color: #e2e2e2;
+    min-height: 100vh; /* asegura que cubra toda la pantalla */
+}
+
+/* Header y Nav */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #e2e2e2;
+    height: 70px; 
+}
+
+nav {
+    display: flex;                  /* activa flexbox */
+    justify-content: space-between; /* separa logo y menú */
+    align-items: center;            /* centra verticalmente */
+    padding: 0.4rem 1rem;
+}
+
+/* Logotipo */
+nav img {
+    width: 80px;       /* ancho fijo */
+    height: auto;      /* mantiene proporción */
+    cursor: pointer;
+    margin: 5px;       /* margen en todos los lados */
+}
+
+/* Menú horizontal */
+.menu {
+    list-style: none;
+    display: flex !important;    /* mantiene los links en línea */
+    gap: 20px;          /* separación entre links */
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: #ff4633;
+    padding: 5px 10px;
+    text-decoration: none; /* elimina el underline por defecto */
+    font-weight: 400;      /* peso normal */
+    transition: all 0.3s;  /* transición suave para hover */
+}
+
+.menu li:first-child {
+    margin-left: 0;     /* quita margen del primer item */
+}
+
+/* Hover */
+.menu a:hover {text-decoration: underline;}
+/* Página activa */
+.menu a.active {font-weight: 600;       /* bold medio */}
+
+
+.sub-header-text {
+    text-align: left;        /* alineado a la izquierda */
+    color: #ff4633;               /* color del texto */
+    font-size: 2rem;         /* tamaño del texto */
+    font-weight: 600;
+    padding-top: 40px;
+    margin-left: 20px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* 3 columnas: izquierda - imagen - derecha */
+    align-items: center;                 /* alinea todo verticalmente */
+    padding-top: 10px;                  /* distancia desde el menú */
+}
+
+.hero img { max-width: 50%; max-height: 50%; justify-self: center; }
+.hero-text { color: #ff4633; font-size: 1rem; font-weight: 500; }
+
+.hero-text.left { text-align: left; justify-self: start; margin-left: 10px; }
+.hero-text.right { text-align: right; justify-self: end; margin-right: 10px; }
+
+/* Botón galeria */
+.gallery-btn {
+    display: inline-flex;         /* alinear flecha y texto */
+    align-items: center;
+    background: none;             /* sin fondo */
+    border: none;                 /* sin borde */
+    color: #ff4633;
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 10px 10px;
+    margin-top: 170px;
+    text-decoration: none;        /* quita el subrayado */
+    cursor: pointer;              /* estilo de cursor */
+}
+
+/* Flecha dentro del botón */
+.gallery-btn .arrow { font-size: 3rem; transform: rotate(45deg); }
+.gallery-btn:hover { color: #4200f7; }
+
+.three-columns {
+    display: flex;                  /* coloca las columnas en fila */
+    justify-content: space-between; /* separa uniformemente */
+    margin: 90px 20px;              /* separación desde los bordes */
+    gap: 20px;                      /* espacio entre columnas */
+}
+
+.column {
+    flex: 1;                        /* cada columna ocupa el mismo ancho */
+    display: flex;                   /* activa flexbox para la columna */
+    flex-direction: column;          /* organiza línea, texto e imagen en vertical */
+}
+
+.column .line { height: 2px; background-color: #ff4633; }
+.column-text { flex: 1; font-size: 1.2rem; font-weight: 600; color: #ff4633; text-align: justify; margin-bottom: 10px; }
+.column img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+.highlight-block {
+    display: flex;               /* organiza cuadro y foto en fila */
+    align-items: stretch;    /* hace que el cuadro y la imagen tengan la misma altura */
+    margin: 150px 10px;           /* separación desde los bordes */
+}
+
+.highlight-text {
+    background-color: #4200f7;   /* color de fondo */
+    color: #e2e2e2;                 /* texto claro sobre el fondo */
+    padding: 15px;               /* espacio interno del cuadro */
+    display: flex;
+    flex-direction: column;      /* textos apilados verticalmente */
+    justify-content: flex-start;      /* alineado al inicio */
+    flex: 1;                     /* que ocupe espacio disponible */
+}
+
+.highlight-text .title { font-size: 2rem; font-weight: 600; }
+.highlight-text .subtitle { font-size: 1.6rem; font-weight: 400; margin-bottom: 10px; margin-top: 40px; }
+.highlight-text .description { font-size: 1.2rem; font-weight: 300; line-height: 1.2; margin-top: 300px;}
+
+.highlight-image { flex: 1; }
+.highlight-image img { max-width: 100%; height: auto; display: block; }
+
+.home-gallery {
+    position: relative;
+    width: 90%;
+    max-width: 500px;       /* ancho máximo */
+    margin: 100px auto;
+    overflow: hidden;
+    background-color: none;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;       /* cada slide ocupa todo el contenedor */
+    height: auto;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Radios ocultos */
+  input[name="slider"] {
+    display: none;
+  }
+  
+  /* Rayitas */
+  .gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .gallery-nav label {
+    width: 30px;
+    height: 4px;
+    background: #ccc;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .gallery-nav label:hover,
+  #slide1:checked ~ .gallery-nav label[for="slide1"],
+  #slide2:checked ~ .gallery-nav label[for="slide2"],
+  #slide3:checked ~ .gallery-nav label[for="slide3"] {
+    background: #ff4633;
+  }
+  
+  /* Movimiento horizontal */
+  #slide1:checked ~ .slides { transform: translateX(0%); }
+  #slide2:checked ~ .slides { transform: translateX(-100%); }
+  #slide3:checked ~ .slides { transform: translateX(-200%); }
+
+  .budget-link {
+    text-align: center;        
+    margin: 30px 0 100px;         
+    background-color: #ff4633;  
+    padding: 10px;              
+    border-radius: 3px;
+    max-width: 500px;            /* ancho máximo para no ocupar toda la pantalla */
+    margin-left: auto;           /* centrado en la página */
+    margin-right: auto;
+}
+
+.budget-link a {
+    color: #e2e2e2;           
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.budget-link a:hover {
+    text-decoration: underline;
+}
+
+  /* ======================== Footer ======================== */
+footer {
+    background-color: #4200f7;
+    color: #ffffff;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* se adapta a pantallas pequeñas */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Redes sociales */
+.footer-socials a {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.footer-socials img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+    transform: scale(1.2); /* efecto zoom al pasar el mouse */
+}
+
+/* Dirección de la empresa */
+.footer-address p {
+    margin: 5px 0;
+}
+
+.footer-address a {
+    color: #ffffff;
+}
+
+/* Aviso legal */
+.footer-legal p, .footer-legal a {
+    margin: 5px 0;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
+
+/* Footer logo */
+.footer-logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-logo img {
+    max-width: 1400px; 
+    height: auto;
+}
+
+
+.hero-idea {
+    text-align: center;
+    padding: 80px 20px 50px 20px;
+    position: relative; /* asegura que esté debajo del header */
+    z-index: 1; /* menor que el header, para que este quede encima */
+}
+
+
+.hero-idea h1 {
+    font-size: 9rem; /* grande, ocupa de esquina a esquina visualmente */
+    font-weight: 400;
+    margin: 0;
+    color: #4200f7;
+}
+
+.spacer {
+    height: 60px; /* margen amplio debajo del h1 */
+}
+
+.hero-idea .subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4200f7;
+    margin-top: 20px;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #4200f7;
+    width: 100%; /* de esquina a esquina */
+    margin-bottom: 10px;
+
+}
+
+.hero-idea .info {
+    font-size: 1rem;
+    line-height: 1.2;
+    max-width: 800px; /* para que no sea demasiado ancho en desktop */
+    margin: 0 auto; /* centrado */
+    color: #4200f7;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 20px;
+  }
+  
+  /* Columna izquierda: imagen */
+  .contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-image img {
+    max-width: 50%;
+    height: auto;
+  }
+  
+  /* Columna derecha: formulario con fondo azul */
+  .contact-form {
+    flex: 1;
+    padding: 30px 40px;         /* más espacio arriba/abajo y lateral */
+    box-sizing: border-box;      /* asegura que padding se incluya en el ancho */
+}
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #4200f7;
+  }
+  
+/* Inputs y textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background-color: #f7f7f7;
+  color: #4200f7; /* color del texto que escriba el usuario */
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Fila de Nombre y Apellidos */
+.name-row {
+  display: flex;
+  gap: 10px;
+}
+.name-row input {
+  flex: 1;
+  box-sizing: border-box;      /* asegurar mismo ancho que los demás */
+}
+
+  
+  /* Textarea más grande */
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  /* Botón pequeño alineado a la izquierda */
+  .contact-form button {
+    background-color: #4200f7;
+    color: #e2e2e2;
+    padding: 8px 16px; 
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.3s;
+  }
+  .contact-form button:hover {
+    background-color: #ff4633;
+    color: #e2e2e2;
+  }
+
+  .privacy-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #4200f7;
+  }
+  
+  .privacy-label a {
+    color: #4200f7;
+    text-decoration: underline;
+  }
+  
+  .privacy-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #4200f7; /* cambia color del check en navegadores modernos */
+    cursor: pointer;
+  }
+  
+/* Contenedor principal */
+.contact-page {
+    display: flex;
+    max-width: 1500px;
+    margin: 0 auto;
+    gap: 40px; /* más separación entre columnas */
+    padding: 40px 20px;
+}
+
+/* Contenedor de la imagen izquierda */
+.fixed-image {
+    flex: 1;
+    position: sticky; /* permanece visible mientras haya espacio */
+    top: 20px;        /* distancia desde la parte superior */
+    align-self: start;
+    max-height: calc(100vh - 40px); /* no sobrepasa el viewport */
+}
+
+.fixed-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Contenido desplazable a la derecha */
+.contact-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* más separación entre secciones */
+    padding-bottom: 200px; /* espacio extra antes del footer */
+}
+
+.contact-content h1 {
+    font-size: 5rem;
+    color: #4200f7;
+    font-weight: 400;
+}
+
+.contact-content h2 {
+    font-size: 2rem;
+    color: #ff4633;
+    font-weight: 300;
+}
+
+.contact-content p {
+    font-size: 1rem;
+    color: #4200f7;
+    line-height: 2; /* mayor separación entre líneas */
+}
+
+/* Mapa */
+.map-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Información de contacto - filas alineadas */
+.contact-info .data-row,
+.company-data .data-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* más separación entre filas */
+}
+
+.contact-info .data-row span,
+.company-data .data-row span {
+    font-size: 1rem;
+    color: #4200f7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-page {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .fixed-image {
+        position: relative;
+        max-height: none;
+    }
+    .contact-content {
+        padding-bottom: 100px;
+    }
+    .contact-info .data-row,
+    .company-data .data-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Encabezado de la galería */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: 600px auto; /* primera fila alta para el h1, luego filas automáticas */
+  gap: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.gallery h1 {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;   /* fuerza a la primera fila */
+  text-align: center;
+  font-size: 21rem;
+  color: #4200f7;
+  font-weight: 400;
+  margin: 0;
+  display: block;
+}
+  
+  /* Cada item */
+  .gallery-item {
+    overflow: hidden;
+    background-color: #e2e2e2;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Variaciones para romper la monotonía */
+  .gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .gallery-item.tall {
+    grid-row: span 2;
+  }
+  
+  .gallery-item.wide {
+    grid-column: span 2;
+  }
+  
+  /* Huecos invisibles */
+  .gallery-item.empty {
+    background: transparent; 
+  }
+
+/* Aviso legal */
+.aviso-legal-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.aviso-legal-page main {
+  padding: 70px 20px 80px;
+  flex: 0 0 auto;    
+}
+
+.aviso-legal-page main h1 {
+  font-size: 12rem;  
+  color: #ff4633;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.aviso-legal-page footer {
+  margin: 0;
+  padding: 40px 20px;   
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+  border: 0;
+}
+
+  
+
+  
+  
+  
+  
+
+  
